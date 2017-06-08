@@ -113,7 +113,7 @@ order="$REPONSEMOMO"
 	else
 	jv_pg_ct_verinoms 
 		if [[ "$order" =~ "$PNOM" ]]; then 
-		say "Je fais partir le lien internet..."; 
+		say "Je fais partir le lien internet à $PNOM..."; 
 		# thermomix_sms="Voici au prochain SMS la recette proposé du jour faite en $lignesay_temps pour $lignesay_portion $lignesay_difficulte à faire, elle fait parti $lignesay_type = $lignesay_titreRCTE."
 		thermomix_sms="La recette proposé du jour $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type, son nom: $lignesay_titreRCTE:"
 
