@@ -10,11 +10,12 @@ For multi-language plugin:
 - optionally write the Description / Usage sections in several languages
 -->
 ## Description
-Etant représentant Thermomix Vorwerk France je me suis dis que je pouvais vous faire partager ce plugin... mais bien sûr il faut impérativement que vous ayez cette 3ème main culinaire en question.
-le but est de recevoir sur son téléphone portable le lien internet de la recette du jour Thermomix Vorwerk avec les ingrédients si on souhaite la réaliser.
+Etant représentant Thermomix Vorwerk France je me suis dis que je pouvais vous faire partager ce plugin... mais bien sûr il faut impérativement que vous ayez le thermomix en question.
+Le but est de recevoir sur son téléphone portable par sms la recette du jour avec les ingrédients si on souhaite la réaliser.
 Comme vous l'aurez compris, il faut avoir aussi le plugin jarvis-FREE-sms si vous êtes chez FREE...
 
-Bonne cuisine et pour un conseil technique culinaire ou sur l'utilisation/SAV du thermomix: 06-72-92-94-43.
+Bonne cuisine si vous avez cette troisème main culinaire en votre possésion... 
+Pour un conseil technique culinaire ou sur l'utilisation/SAV du thermomix: 06-72-91-04-43
 
 ## Languages
 
