@@ -96,8 +96,12 @@ else
 lignesay_ingredient_etape="elle se fait 1 seule étape."
 fi                  
 
-# say "J'ai trouvé, elle se fait en $lignesay_temps pour $lignesay_portion est $lignesay_difficulte à faire, elle fait partie des $lignesay_type"
-say "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type"
+# say "J'ai trouvé, elle se fait en $lignesay_temps pour $lignesay_portion est $lignesay_difficulte à faire, elle fait partie des $lignesay_type."
+# local thermomix_say_ok=`echo "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type." | sed -e "s/\/s//g"`
+thermomix_say_ok=`echo "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type."`
+jv_pg_ct_thermomix_corige "$thermomix_say_ok"
+say "$thermomix_corigeOk"
+# say "$thermomix_say_ok"
 
 say "Son nom: $lignesay_titreRCTE"
 
@@ -151,7 +155,7 @@ fi
 
 
 jv_pg_ct_thermomix_corige() {
-thermomix_corigeOk=`echo "$1" | sed -e "s/&amp;/et/g" | sed -e "s/min/ minutes/g" | sed -e "s/  //g" | sed -e "s/&#039;/'/g"`
+thermomix_corigeOk=`echo "$1" | sed -e "s/&amp;/et/g" | sed -e "s/min,/ minutes,/g" | sed -e "s/  //g" | sed -e "s/&#039;/'/g" | sed -e "s/\/s//g"`
 														 
 if [[ `echo "$thermomix_corigeOk" | cut -c1` == " " ]]; then
 thermomix_corigeOk=`echo "$thermomix_corigeOk" | cut -c2-`

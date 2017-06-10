@@ -1,0 +1,2 @@
+$verbose && jv_debug "DEBUG: exiting_cmd hook"
+ETAPEMOMO="0"
