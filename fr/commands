@@ -1,4 +1,5 @@
 *RECET*THERMOMIX*==if [[ "$GOTOSORTIMOMO" == "Fin" ]]; then GOTOSORTIMOMO=""; commands="$(jv_get_commands)"; jv_handle_order "GOTOSORTI_MOMO"; return; else jv_pg_ct_thermomix; fi
+>*ANNUL*==say "Ok annulation"; commands="$(jv_get_commands)"; jv_handle_order "GOTOSORTI_MOMO"; return;
 >(*)==if [[ "$GOTOSORTIMOMO" == "Fin" ]]; then GOTOSORTIMOMO=""; commands="$(jv_get_commands)"; jv_handle_order "GOTOSORTI_MOMO"; return; else REPONSEMOMO="$order"; commands="$(jv_get_commands)"; jv_handle_order "Recette Thermomix"; return; fi
 GOTOSORTI_MOMO==say "Je suis sorti..."
 

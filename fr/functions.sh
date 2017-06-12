@@ -58,23 +58,27 @@ fi
 # <h5 class="media-heading">Facile</h5> ligne 660 puis 652
 # <div class="smallText">Preparation ligne d'avant
 exactlignealirethermomix=660
-lignesay=$(sed -n "$exactlignealirethermomix p" $varchemthermomix)
+# lignesay=$(sed -n "$exactlignealirethermomix p" $varchemthermomix)
 lignesay=`grep -n  '<div class="smallText">Preparation' $varchemthermomix | cut -d":" -f1 | paste -s | cut -f2`
-if [[ "$lignesay_difficulte" -gt "1" ]]; then 
+if [[ "$lignesay" -gt "1" ]]; then 
 lignesay=$(( $lignesay - 1 ))
 lignesay=$(sed -n "$lignesay p" $varchemthermomix)
 lignesay_difficulte=`echo "$lignesay" | cut -d">" -f2 | cut -d"<" -f1`
-	if [[ "$lignesay_difficulte" != "" ]]; then 
-	lignesay_difficulte="est $lignesay_difficulte à faire,"
+if [[ "$lignesay_difficulte" != "" ]]; then 
+        lignesay_difficulte="est $lignesay_difficulte à faire,"
 	# say "C'est une recette $lignesay_difficulte à faire."
 	fi
 fi
 
+
 ## Type R7: ########################
-exactlignealirethermomix=425
-lignesay=$(sed -n "$exactlignealirethermomix p" $varchemthermomix)
+# exactlignealirethermomix=425
+# lignesay=$(sed -n "$exactlignealirethermomix p" $varchemthermomix)
+lignesay=`grep -n  '<a class="catText preventDefault" href="/categories/">recette</a>'  $varchemthermomix  | cut -d":" -f1 | paste -s | cut -f2`
+if [[ "$lignesay" -gt "1" ]]; then 
+lignesay=$(( $lignesay - 1 ))
+lignesay=$(sed -n "$lignesay p" $varchemthermomix)
 lignesay_type=`echo "$lignesay" | cut -d">" -f2 | cut -d"<" -f1`
-if [[ "$lignesay_type" != "" ]]; then 
 jv_pg_ct_thermomix_corige "$lignesay_type"
 lignesay_type="elle fait partie des $thermomix_corigeOk."
 # say "ça fait parti des $lignesay_type."
