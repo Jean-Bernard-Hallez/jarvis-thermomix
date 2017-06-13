@@ -95,14 +95,14 @@ lignesay_ingredient="$thermomix_corigeOk"
 # say "Ingrédient: $lignesay_ingredient"
 fi 
 if [[ "$lignesay_ingredient_etape" -gt "1" ]]; then 
-lignesay_ingredient_etape="elle se fait en $lignesay_ingredient_etape étapes."
+lignesay_ingredient_etape="Elle se fait en $lignesay_ingredient_etape étapes."
 else
-lignesay_ingredient_etape="elle se fait 1 seule étape."
+lignesay_ingredient_etape="Elle se fait 1 seule étape."
 fi                  
 
 # say "J'ai trouvé, elle se fait en $lignesay_temps pour $lignesay_portion est $lignesay_difficulte à faire, elle fait partie des $lignesay_type."
 # local thermomix_say_ok=`echo "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type." | sed -e "s/\/s//g"`
-thermomix_say_ok=`echo "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type."`
+thermomix_say_ok=`echo "J'ai trouvé, $lignesay_temps $lignesay_portion $lignesay_difficulte $lignesay_type. $lignesay_ingredient_etape."`
 jv_pg_ct_thermomix_corige "$thermomix_say_ok"
 say "$thermomix_corigeOk"
 # say "$thermomix_say_ok"
