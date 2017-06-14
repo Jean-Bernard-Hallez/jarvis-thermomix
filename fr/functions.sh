@@ -149,8 +149,13 @@ order="$REPONSEMOMO";
 	say "Ok, la prochaine recette peut-être.";
 	return; 
 	else
-	jv_pg_ct_verinoms;
 
+PNOM=""
+jv_pg_ct_verinoms;
+if test -z "$PNOM"; then 
+PNOM=""
+return; 
+fi
 	if [[ "$order" =~ "$PNOM" ]]; then
 	
 		echo "$PNOM" >> $varchemthermomix_sauv 
