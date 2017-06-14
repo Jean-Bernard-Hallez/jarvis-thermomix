@@ -153,6 +153,8 @@ order="$REPONSEMOMO";
 PNOM=""
 jv_pg_ct_verinoms;
 if test -z "$PNOM"; then 
+echo "4" > $varchemthermomix_etape;
+GOTOSORTIMOMO="Fin";
 PNOM=""
 return; 
 fi
@@ -167,7 +169,6 @@ fi
 		lignesay_ingredient_etape=`cat $varchemthermomix_sauv | sed -n 4p`;
 		jv_handle_order "MESSEXTERNE ; $PNOM ; $thermomix_sms";
 		jv_handle_order "MESSEXTERNE ; $PNOM ; $lignesay_html"; 
-
 		say "Souhaitez vous aussi que je vous envoie les $lignesay_ingredient_qte ingrédients par sms ?";
 		say "$lignesay_ingredient_etape";
 		echo "3" > $varchemthermomix_etape;
