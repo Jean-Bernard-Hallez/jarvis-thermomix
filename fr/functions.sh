@@ -134,15 +134,23 @@ jv_pg_ct_thermomix_corige "$thermomix_say_ok";
 say "$thermomix_corigeOk";
 
 say "Son nom: $lignesay_titreRCTE";
-say "Est-ce que je vous envoie le lien par sms à $(jv_pg_ct_ilyanom) ou personne ?";
-echo "2" > $varchemthermomix_etape;
+	if jv_plugin_is_enabled "jarvis-FREE-sms"; then
+	say "Est-ce que je vous envoie le lien par sms à $(jv_pg_ct_ilyanom) ou personne ?";
+	return;
+	else
+	say "Voilà."
+	echo "4" > $varchemthermomix_etape;
+	GOTOSORTIMOMO="Fin";
+	fi
 
+echo "2" > $varchemthermomix_etape;
+ 
 return;
 fi
 
 if [[ "$ETAPEMOMO" == "2" ]] ; then
 order="$REPONSEMOMO";
-
+ 
 	if [[ "$REPONSEMOMO" =~ "personn" ]]; then
 	echo "4" > $varchemthermomix_etape;
 	GOTOSORTIMOMO="Fin";
@@ -150,12 +158,18 @@ order="$REPONSEMOMO";
 	return; 
 	else
 
-PNOM=""
-jv_pg_ct_verinoms;
+	if jv_plugin_is_enabled "jarvis-FREE-sms"; then
+	jv_pg_ct_verinoms;
+	return;
+	else
+	say "Voilà."
+	echo "4" > $varchemthermomix_etape;
+	GOTOSORTIMOMO="Fin";
+	fi
+
 if test -z "$PNOM"; then 
 echo "4" > $varchemthermomix_etape;
 GOTOSORTIMOMO="Fin";
-PNOM=""
 return; 
 fi
 	if [[ "$order" =~ "$PNOM" ]]; then
