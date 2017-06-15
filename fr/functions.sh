@@ -167,6 +167,7 @@ fi
 		lignesay_html=`cat $varchemthermomix_sauv | sed -n 2p`; 
 		lignesay_ingredient_qte=`cat $varchemthermomix_sauv | sed -n 3p`;
 		lignesay_ingredient_etape=`cat $varchemthermomix_sauv | sed -n 4p`;
+		commands="$(jv_get_commands)"
 		jv_handle_order "MESSEXTERNE ; $PNOM ; $thermomix_sms";
 		jv_handle_order "MESSEXTERNE ; $PNOM ; $lignesay_html"; 
 		say "Souhaitez vous aussi que je vous envoie les $lignesay_ingredient_qte ingrédients par sms ?";
