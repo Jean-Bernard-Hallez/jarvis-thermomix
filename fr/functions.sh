@@ -1,13 +1,6 @@
 #!/bin/bash
 # Here you can create functions which will be available from the commands file
 # You can also use here user variables defined in your config file
-jv_pg_ct_ABC() {
-say "Recherche de la recette Thermomix du jour.";
-say "J'ai trouvé, elle se fait en 20 minutes, pour 4 portion est Facile à faire, elle fait partie des Soupes.. Elle se fait 1 seule étape..";
-say "Son nom: Soupe froide courgette, concombre et fromage frais"
-say "Est-ce que je vous envoie le lien par sms à JB, léa, Alicia ou personne ?";
-}
-
 
 
 jv_pg_ct_thermomix()  {
@@ -55,6 +48,7 @@ wget -q $lignesay_html -O $varchemthermomix;
 lignesay_temps=`grep '<h5 class="media-heading">.*min' $varchemthermomix | cut -d">" -f2 | cut -d"<" -f1`;
 if [[ "$lignesay_temps" != "" ]]; then 
 jv_pg_ct_thermomix_corige "$lignesay_temps";
+thermomix_corigeOk=`echo "$thermomix_corigeOk" | sed -e "s/1/une/g"`
 lignesay_temps="elle se fait en $thermomix_corigeOk,";
 # say "Fait en $lignesay_temps.";
 fi
@@ -71,6 +65,7 @@ fi
 if [[ "$lignesay_portion" != "" ]]; then 
 jv_pg_ct_thermomix_corige "$lignesay_portion";
 lignesay_portion="pour $thermomix_corigeOk";
+lignesay_portion=`echo "$lignesay_portion" | sed -e "s/1/une/g"`
 # say "Pour $lignesay_portion."
 fi
 
@@ -117,7 +112,7 @@ fi
 if [[ "$lignesay_ingredient_etape" -gt "1" ]]; then 
 lignesay_ingredient_etape="Elle se fait en $lignesay_ingredient_etape étapes.";
 else
-lignesay_ingredient_etape="Elle se fait 1 seule étape.";
+lignesay_ingredient_etape="Elle se fait en une seule étape.";
 fi                  
 
 
