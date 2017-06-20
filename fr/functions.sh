@@ -48,7 +48,7 @@ wget -q $lignesay_html -O $varchemthermomix;
 lignesay_temps=`grep '<h5 class="media-heading">.*min' $varchemthermomix | cut -d">" -f2 | cut -d"<" -f1`;
 if [[ "$lignesay_temps" != "" ]]; then 
 jv_pg_ct_thermomix_corige "$lignesay_temps";
-thermomix_corigeOk=`echo "$thermomix_corigeOk" | sed -e "s/1/une/g"`
+thermomix_corigeOk=`echo "$thermomix_corigeOk" | sed -e "s/1m/une m/g"`
 lignesay_temps="elle se fait en $thermomix_corigeOk,";
 # say "Fait en $lignesay_temps.";
 fi
@@ -131,6 +131,7 @@ say "$thermomix_corigeOk";
 say "Son nom: $lignesay_titreRCTE";
 	if jv_plugin_is_enabled "jarvis-FREE-sms"; then
 	say "Est-ce que je vous envoie le lien par sms à $(jv_pg_ct_ilyanom) ou personne ?";
+	echo "2" > $varchemthermomix_etape;
 	return;
 	else
 	say "Voilà."
