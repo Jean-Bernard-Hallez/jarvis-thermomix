@@ -146,6 +146,7 @@ fi
 
 if [[ "$ETAPEMOMO" == "2" ]] ; then
 order="$REPONSEMOMO";
+
  
 	if [[ "$REPONSEMOMO" =~ "personn" ]]; then
 	echo "4" > $varchemthermomix_etape;
@@ -156,7 +157,13 @@ order="$REPONSEMOMO";
 
 	if jv_plugin_is_enabled "jarvis-FREE-sms"; then
 	jv_pg_ct_verinoms;
-	return;
+	
+		if [[ "$PNOM" == "" ]]; then
+		say "Je ne reconnais pas le nom..."
+		GOTOSORTIMOMO="Fin";
+		echo "4" > $varchemthermomix_etape;
+		return;
+		fi
 	else
 	say "Voilà."
 	echo "4" > $varchemthermomix_etape;
