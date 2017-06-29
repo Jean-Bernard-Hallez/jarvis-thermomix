@@ -5,7 +5,6 @@
 
 jv_pg_ct_thermomix()  {
 varchemthermomix_etape="$jv_dir/plugins_installed/jarvis-thermomix/recette_etape.txt";
-
 varchemthermomix_sauv="$jv_dir/plugins_installed/jarvis-thermomix/recette_dujour.txt";
 
 if test -e "$varchemthermomix_etape"; then
@@ -21,6 +20,7 @@ fi
 # say "je suis à  $ETAPEMOMO";
 if [[ "$ETAPEMOMO" == "1" ]] ; then
 say "Recherche de la recette Thermomix du jour.";
+lignesay="";
 lignesay_temps="";
 lignesay_portion="";
 lignesay_difficulte="";
@@ -42,6 +42,7 @@ exactlignealirethermomix=510;
 lignesay_html=`echo "$lignesay" | cut -d"/" -f2- | cut  -d'"' -f1`;
 lignesay_html="https://www.espace-recettes.fr/$lignesay_html";
 wget -q $lignesay_html -O $varchemthermomix;
+
 
 
 ## Temps: ########################
@@ -85,6 +86,7 @@ if [[ "$lignesay_difficulte" != "" ]]; then
 	# say "C'est une recette $lignesay_difficulte à faire."
 	fi
 fi
+lignesay="";
 
 
 ## Type R7: ########################
@@ -98,6 +100,7 @@ lignesay_type=`echo "$lignesay" | cut -d">" -f2 | cut -d"<" -f1`;
 jv_pg_ct_thermomix_corige "$lignesay_type";
 lignesay_type="elle fait partie des $thermomix_corigeOk.";
 # say "ça fait parti des $lignesay_type.";
+lignesay="";
 fi
 
 ## ingrédients: ########################
@@ -148,6 +151,12 @@ fi
 if [[ "$ETAPEMOMO" == "2" ]] ; then
 order="$REPONSEMOMO";
 
+if [[ "$REPONSEMOMO" =~ "" ]]; then
+echo "1" > $varchemthermomix_etape;
+ETAPEMOMO="1";
+jv_pg_ct_thermomix;
+return;
+fi
  
 	if [[ "$REPONSEMOMO" =~ "personn" ]]; then
 	echo "4" > $varchemthermomix_etape;
