@@ -5,6 +5,7 @@
 
 jv_pg_ct_thermomix()  {
 varchemthermomix_etape="$jv_dir/plugins_installed/jarvis-thermomix/recette_etape.txt";
+
 varchemthermomix_sauv="$jv_dir/plugins_installed/jarvis-thermomix/recette_dujour.txt";
 
 if test -e "$varchemthermomix_etape"; then
