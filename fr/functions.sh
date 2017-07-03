@@ -50,7 +50,7 @@ wget -q $lignesay_html -O $varchemthermomix;
 lignesay_temps=`grep '<h5 class="media-heading">.*min' $varchemthermomix | cut -d">" -f2 | cut -d"<" -f1`;
 if [[ "$lignesay_temps" != "" ]]; then 
 jv_pg_ct_thermomix_corige "$lignesay_temps";
-thermomix_corigeOk=`echo "$thermomix_corigeOk" | sed -e "s/1m/une m/g"`
+thermomix_corigeOk=`echo "$thermomix_corigeOk" | sed -e "s/1m/une m/g" | sed -e "s/h / heure /g"`
 lignesay_temps="elle se fait en $thermomix_corigeOk,";
 # say "Fait en $lignesay_temps.";
 fi
