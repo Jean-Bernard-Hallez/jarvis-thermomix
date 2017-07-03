@@ -151,20 +151,19 @@ fi
 if [[ "$ETAPEMOMO" == "2" ]] ; then
 order="$REPONSEMOMO";
 
-if [[ "$REPONSEMOMO" =~ "" ]]; then
-echo "1" > $varchemthermomix_etape;
-ETAPEMOMO="1";
-jv_pg_ct_thermomix;
-return;
-fi
- 
+	if [[ "$REPONSEMOMO" == "" ]]; then
+	echo "1" > $varchemthermomix_etape;
+	ETAPEMOMO="1";
+	jv_pg_ct_thermomix;
+	return;
+	fi
 	if [[ "$REPONSEMOMO" =~ "personn" ]]; then
+	echo "----$REPONSEMOMO----";	
 	echo "4" > $varchemthermomix_etape;
 	GOTOSORTIMOMO="Fin";
 	say "Ok, la prochaine recette peut-être.";
 	return; 
 	else
-
 	if jv_plugin_is_enabled "jarvis-FREE-sms"; then
 	jv_pg_ct_verinoms;
 	
