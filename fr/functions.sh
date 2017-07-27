@@ -158,7 +158,7 @@ order="$REPONSEMOMO";
 	return;
 	fi
 	if [[ "$REPONSEMOMO" =~ "personn" ]]; then
-	echo "----$REPONSEMOMO----";	
+	# echo "----$REPONSEMOMO----";	
 	echo "4" > $varchemthermomix_etape;
 	GOTOSORTIMOMO="Fin";
 	say "Ok, la prochaine recette peut-être.";
